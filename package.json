@@ -1,0 +1,29 @@
+{
+  "name": "odin-inventory-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lemuller04/odin-inventory-application.git"
+  },
+  "keywords": [],
+  "author": "Leonardo Müller <leonardomullerdelima@pm.me>",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Lemuller04/odin-inventory-application/issues"
+  },
+  "homepage": "https://github.com/Lemuller04/odin-inventory-application#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1",
+    "pg": "^8.16.3"
+  }
+}
