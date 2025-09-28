@@ -1,5 +1,6 @@
 .new-category-section,
-.new-type-section {
+.new-type-section,
+.new-weapon-section {
   display: grid;
   grid-template: auto auto / minmax(0, 500px);
   justify-content: center;
@@ -11,7 +12,8 @@
 }
 
 .new-category-section form,
-.new-type-section form {
+.new-type-section form,
+.new-weapon-section form {
   display: grid;
 
   & button {
@@ -33,7 +35,8 @@
 }
 
 .new-category-section p,
-.new-type-section p {
+.new-type-section p,
+.new-weapon-section p {
   display: flex;
   flex-direction: column;
   gap: .4em;
@@ -50,4 +53,53 @@
     border-radius: 12px;
     border: 2px solid var(--dark-highlight);
   }
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset:last-of-type p {
+  display: grid;
+  grid-template: auto / minmax(150px, 150px) 1fr;
+
+  & label {
+    text-align: end;
+  }
+}
+
+.end-form-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+
+  & button:hover {
+    cursor: pointer;
+  }
+
+  & a {
+    background-color: var(--darkred-highlight);
+    border: 1px solid var(--dark-gray);
+    color: var(--default-background);
+    transition: background-color .2s ease-in;
+    padding: .3em 1em;
+    border-radius: 16px;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: .5rem;
+  }
+
+  & a:hover {
+    background-color: var(--red-highlight);
+  }
+}
+
+
+select {
+  font-size: 1rem;
+  padding: .1em;
+  border-radius: 8px;
+  background-color: #fff;
 }

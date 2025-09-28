@@ -32,7 +32,7 @@ async function categoryGet(req, res, next) {
     const category = await db.getCategory(req.params.slug);
     res.render("pages/categories/show", {
       title: "Category Details",
-      stylesheets: ["base"],
+      stylesheets: ["base", "show-item"],
       scripts: [],
       layout: "layout",
       category: category,

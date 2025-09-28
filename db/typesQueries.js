@@ -2,7 +2,7 @@ const pool = require("./pools.js");
 
 async function getTypes() {
   const result = await pool.query(
-    "SELECT id, title, description, slug FROM types",
+    "SELECT id, title, description, slug FROM types ORDER BY title",
   );
   return result.rows;
 }
@@ -23,6 +23,18 @@ async function deleteType(slug) {
     await pool.query("DELETE FROM types WHERE slug = $1", [slug]);
   } catch (err) {
     throw new Error(`Failed to delete type: ${err.message}`);
+  }
+}
+
+async function getTypeById(id) {
+  try {
+    const result = await pool.query(
+      "SELECT id, title, description, slug FROM types WHERE id = $1",
+      [id],
+    );
+    return result.rows[0];
+  } catch (err) {
+    throw new Error(`Failed to load type: ${err.message}`);
   }
 }
 
@@ -53,6 +65,7 @@ module.exports = {
   getTypes,
   insertType,
   deleteType,
+  getTypeById,
   getType,
   updateType,
 };

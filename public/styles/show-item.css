@@ -1,5 +1,6 @@
 .type-show,
-.category-show {
+.category-show,
+.weapon-show {
   display: grid;
   grid-template: auto / minmax(0, 600px);
   justify-content: center;

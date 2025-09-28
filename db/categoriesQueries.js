@@ -2,7 +2,7 @@ const pool = require("./pools.js");
 
 async function getCategories() {
   const result = await pool.query(
-    "SELECT id, title, description, slug FROM categories",
+    "SELECT id, title, description, slug FROM categories ORDER BY title",
   );
   return result.rows;
 }
@@ -23,6 +23,18 @@ async function deleteCategory(slug) {
     await pool.query("DELETE FROM categories WHERE slug = $1", [slug]);
   } catch (err) {
     throw new Error(`Failed to delete category ${err.message}`);
+  }
+}
+
+async function getCategoryById(id) {
+  try {
+    const result = await pool.query(
+      "SELECT id, title, description, slug FROM categories WHERE id = $1",
+      [id],
+    );
+    return result.rows[0];
+  } catch (err) {
+    throw new Error(`Failed to load category: ${err.message}`);
   }
 }
 
@@ -53,6 +65,7 @@ module.exports = {
   getCategories,
   insertCategory,
   deleteCategory,
+  getCategoryById,
   getCategory,
   updateCategory,
 };

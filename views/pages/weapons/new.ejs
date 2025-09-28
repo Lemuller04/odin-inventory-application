@@ -1,0 +1,64 @@
+<section class="new-weapon-section">
+    <h2><%= title %></h2>
+    <form method="POST" action="/weapons/<%= editing ? `${data.slug}?_method=PUT` : "" %>">
+        <fieldset>
+            <p>
+                <label for="newtitle">Weapon name:</label>
+                <input
+                    type="text"
+                    name="newtitle"
+                    id="newtitle"
+                    required
+                    minlength="1"
+                    value="<%= locals.data?.newtitle ?? "" %>"
+            </p>
+            <p>
+                <label for="newdescription">Weapon description:</label>
+                <textarea
+                    name="newdescription"
+                    id="newdescription"
+                    required
+                    minlength="1"
+                    rows=10
+                ><%= locals.data?.newdescription ?? "" %></textarea>
+            </p>
+        </fieldset>
+        <fieldset>
+            <p>
+                <label for="newcategory">Weapon category: </label>
+                <select name="newcategory" id="newcategory" required>
+                    <% if (!editing) { %>
+                        <option value="" disabled hidden selected>Select</option>
+                    <% } %>
+                    <% if (categories) { for (const category of categories) { %>
+                        <option
+                            value="<%= category.id %>"
+                            <%= (editing && weapon.category_id === category.id) ? "selected" : "" %>
+                        ><%= category.title %></option>
+                    <% }} %>
+                </select>
+            </p>
+            <p>
+                <label for="newtype">Weapon type: </label>
+                <select name="newtype" id="newtype" required>
+                    <% if (!editing) { %>
+                        <option value="" disabled hidden selected>Select</option>
+                    <% } %>
+                    <% if (types) { for (const type of types) { %>
+                        <option
+                            value="<%= type.id %>"
+                            <%= (editing && weapon.type_id == type.id) ? "selected" : "" %>
+                        ><%= type.title %></option>
+                    <% }} %>
+                </select>
+            </p>
+        </fieldset>
+        <% if (locals.errors) { for (const error of errors) { %>
+            <p class="form-error-message"><%= error.msg %></p>
+        <% }} %>
+        <fieldset class="end-form-buttons">
+            <a href="/weapons">Cancel</a>
+            <button type="submit"><%= editing ? "Save Weapon" : "Add Waepon" %></button>
+        </fieldset>
+    </form>
+</section>

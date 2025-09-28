@@ -1,5 +1,6 @@
 .categories-top-bar,
-.types-top-bar {
+.types-top-bar,
+.weapons-top-bar {
   width: 100%;
   display: grid;
   grid-template: auto / 1fr auto;
@@ -47,7 +48,8 @@
 .item-buttons a,
 .item-buttons button,
 .categories-top-bar a,
-.types-top-bar a {
+.types-top-bar a,
+.weapons-top-bar a {
   padding: .3em 1em;
   border-radius: 10px;
   font-size: 1rem;
@@ -57,7 +59,8 @@
 
 .item-buttons .open-button,
 .categories-top-bar a,
-.types-top-bar a {
+.types-top-bar a,
+.weapons-top-bar a {
   background-color: var(--darkgreen-highlight);
   border: 1px solid var(--dark-gray);
   color: var(--default-background);
@@ -66,7 +69,8 @@
 
 .item-buttons .open-button:hover,
 .categories-top-bar a:hover,
-.types-top-bar a:hover {
+.types-top-bar a:hover,
+.weapons-top-bar a:hover {
   background-color: var(--green-highlight);
 }
 
@@ -103,4 +107,20 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.weapons-search-bar {
+  display: flex;
+  gap: .5em;
+
+  & input {
+    flex: 1;
+  }
+
+  & select {
+    font-size: 1rem;
+    padding: .1em;
+    border-radius: 8px;
+    background-color: #fff;
+  }
 }
