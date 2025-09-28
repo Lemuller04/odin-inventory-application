@@ -1,0 +1,60 @@
+.type-show,
+.category-show {
+  display: grid;
+  grid-template: auto / minmax(0, 600px);
+  justify-content: center;
+  padding: 3em;
+  gap: 1em;
+}
+
+.item-buttons {
+  border-top: 2px solid var(--gray);
+  padding-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+
+  & button {
+    background-color: var(--darkred-highlight);
+    border: 1px solid var(--dark-gray);
+    color: var(--default-background);
+    transition: background-color .2s ease-in;
+  }
+
+  & button:hover {
+    background-color: var(--red-highlight);
+  }
+
+  & .edit-button {
+    background-color: var(--darkblue-highlight);
+    border: 1px solid var(--dark-gray);
+    color: var(--default-background);
+    transition: background-color .2s ease-in;
+  }
+
+  & .edit-button:hover {
+    background-color: var(--blue-highlight);
+  }
+
+}
+
+.item-buttons a,
+.item-buttons button {
+  padding: .3em 1em;
+  border-radius: 10px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.item-buttons .open-button {
+  background-color: var(--darkgreen-highlight);
+  border: 1px solid var(--dark-gray);
+  color: var(--default-background);
+  transition: background-color .2s ease-in;
+}
+
+.item-buttons .open-button:hover {
+  background-color: var(--green-highlight);
+}

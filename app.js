@@ -7,6 +7,7 @@ const methodOverride = require("method-override");
 const { join } = require("node:path");
 
 const categoriesRouter = require("./routes/categoriesRouter.js");
+const typesRouter = require("./routes/typesRouter.js");
 const app = express();
 
 app.use(methodOverride("_method"));
@@ -34,6 +35,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/categories", categoriesRouter);
+app.use("/types", typesRouter);
 
 app.use((req, res, next) => {
   res.status(404).render("pages/404", {

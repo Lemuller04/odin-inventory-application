@@ -41,7 +41,7 @@ async function getCategory(slug) {
 async function updateCategory(data, slug, newSlug) {
   try {
     await pool.query(
-      "UPDATE categories SET title = $1, description = $2, slug = $3 WHERE slug = $4 RETURNING *",
+      "UPDATE categories SET title = $1, description = $2, slug = $3 WHERE slug = $4",
       [data.newtitle, data.newdescription, newSlug, slug],
     );
   } catch (err) {

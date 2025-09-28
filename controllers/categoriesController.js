@@ -1,5 +1,5 @@
 const { body, validationResult } = require("express-validator");
-const db = require("../db/queries.js");
+const db = require("../db/categoriesQueries.js");
 
 const validateCategory = [
   body("newtitle")

@@ -1,0 +1,12 @@
+<section class="type-show">
+    <h2><%= type.title %> Type Details</h2>
+    <p><%= type.description %></p>
+
+    <div class="item-buttons">
+        <a href="/types" class="open-button">Return</a>
+        <form method="POST" action="/types/<%= type.slug %>?_method=DELETE">
+            <button type="submit">Delete</button>
+        </form>
+        <a href="/types/<%= type.slug %>/edit" class="edit-button">Edit</a>
+    </div>
+</section>

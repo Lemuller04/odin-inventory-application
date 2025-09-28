@@ -1,4 +1,5 @@
-.new-category-section {
+.new-category-section,
+.new-type-section {
   display: grid;
   grid-template: auto auto / minmax(0, 500px);
   justify-content: center;
@@ -9,7 +10,8 @@
   }
 }
 
-.new-category-section form {
+.new-category-section form,
+.new-type-section form {
   display: grid;
 
   & button {
@@ -30,7 +32,8 @@
   }
 }
 
-.new-category-section p {
+.new-category-section p,
+.new-type-section p {
   display: flex;
   flex-direction: column;
   gap: .4em;
