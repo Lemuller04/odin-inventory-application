@@ -1,0 +1,29 @@
+<section class="new-category-section">
+    <h2><%= title %></h2>
+    <form method="POST" action="/categories/<%= editing ? `${data.slug}?_method=PUT` : "" %>">
+        <p>
+            <label for="newtitle">Category title:</label>
+            <input
+                type="text"
+                name="newtitle"
+                id="newtitle"
+                required
+                minlength="1"
+                value="<%= locals.data?.newtitle ?? "" %>"
+        </p>
+        <p>
+            <label for="newdescription">Category description:</label>
+            <textarea
+                name="newdescription"
+                id="newdescription"
+                required
+                minlength="1"
+                rows=10
+            ><%= locals.data?.newdescription ?? "" %></textarea>
+        </p>
+        <% if (locals.errors) { for (const error of errors) { %>
+            <p class="form-error-message"><%= error.msg %></p>
+        <% }} %>
+        <button type="submit"><%= editing ? "Save Category" : "Add Category" %></button>
+    </form>
+</section>
