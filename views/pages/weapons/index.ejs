@@ -34,7 +34,11 @@
 
                 <div class="item-buttons">
                     <a href="/weapons/<%= item.slug %>" class="open-button">Open</a>
-                    <form method="POST" action="/weapons/<%= item.slug %>?_method=DELETE">
+                    <form
+                        method="POST"
+                        action="/weapons/<%= item.slug %>?_method=DELETE"
+                        onsubmit="return confirm('Are you sure you want to delete <%= item.name %>?');"
+                    >
                         <button type="submit">Delete</button>
                     </form>
                     <a href="/weapons/<%= item.slug %>/edit" class="edit-button">Edit</a>

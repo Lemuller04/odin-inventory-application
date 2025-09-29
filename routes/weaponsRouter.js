@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const controller = require("../controllers/weaponsController.js");
+const requireAdmin = require("../middleware/requireAdmin.js");
 
 router.get("/", controller.weaponsGet);
 router.get("/new", controller.newWeaponGet);

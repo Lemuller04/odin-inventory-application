@@ -14,7 +14,7 @@ async function insertWeapon(title, description, slug, category, type) {
       [title, description, slug, category, type],
     );
   } catch (err) {
-    throw new Error(`Failed to insert type: ${err.message}`);
+    throw new Error(`Failed to insert weapon: ${err.message}`);
   }
 }
 
@@ -22,7 +22,7 @@ async function deleteWeapon(slug) {
   try {
     await pool.query("DELETE FROM weapons WHERE slug = $1", [slug]);
   } catch (err) {
-    throw new Error(`Failed to delete type: ${err.message}`);
+    throw new Error(`Failed to delete weapin: ${err.message}`);
   }
 }
 
@@ -52,7 +52,7 @@ async function updateWeapon(data, slug, newSlug) {
       ],
     );
   } catch (err) {
-    throw new Error(`Failed to update type: ${err.message}`);
+    throw new Error(`Failed to update weapon: ${err.message}`);
   }
 }
 

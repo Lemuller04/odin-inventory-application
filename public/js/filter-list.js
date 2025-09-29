@@ -3,12 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const items = document.querySelectorAll(".item-list li");
 
   searchInput.addEventListener("input", () => {
-    const query = searchInput.value.toLowerCase();
-
-    for (const item of items) {
-      const title = item.querySelector(".item-title").textContent.toLowerCase();
-      item.style.display = title.includes(query) ? "grid" : "none";
-    }
+    applyAllFilters();
   });
 
   const categoryFilter = document.querySelector("#category-filter");
@@ -16,31 +11,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (categoryFilter && typeFilter) {
     categoryFilter.addEventListener("change", () => {
-      applyFilter();
+      applyAllFilters();
     });
 
     typeFilter.addEventListener("change", () => {
-      applyFilter();
+      applyAllFilters();
     });
   }
 
-  function applyFilter() {
+  function applyAllFilters() {
+    const query = searchInput.value.toLowerCase();
     const selectedCategory = categoryFilter.value;
     const selectedType = typeFilter.value;
 
     for (const item of items) {
+      const title = item.querySelector(".item-title").textContent.toLowerCase();
       const itemCategory = item.dataset.categoryId;
       const itemType = item.dataset.typeId;
 
-      if (
-        selectedCategory === "" ||
-        (itemCategory === selectedCategory && selectedType === "") ||
-        itemType === selectedType
-      ) {
-        item.style.display = "grid";
-      } else {
-        item.style.display = "none";
-      }
+      const matchesSearch = title.includes(query);
+      const matchesCategory =
+        selectedCategory === "" || itemCategory === selectedCategory;
+      const matchesType = selectedType === "" || itemType === selectedType;
+
+      item.style.display =
+        matchesSearch && matchesCategory && matchesType ? "grid" : "none";
     }
   }
 });

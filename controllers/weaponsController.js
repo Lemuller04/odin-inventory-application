@@ -59,7 +59,7 @@ async function weaponPost(req, res, next) {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      return res.render("pages/types/new", {
+      return res.render("pages/weapons/new", {
         title: "New Type",
         stylesheets: ["base", "forms"],
         scripts: [],
@@ -73,8 +73,7 @@ async function weaponPost(req, res, next) {
     const { newtitle, newdescription, newcategory, newtype } = req.body;
     const slug = newtitle.toLowerCase().replace(/ /g, "-");
     await db.insertWeapon(newtitle, newdescription, slug, newcategory, newtype);
-    res.redirect("/weapons");
-    // res.redirect(`/weapons/${slug}`);
+    res.redirect(`/weapons/${slug}`);
   } catch (err) {
     next(err);
   }

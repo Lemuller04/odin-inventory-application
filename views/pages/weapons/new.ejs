@@ -11,6 +11,7 @@
                     required
                     minlength="1"
                     value="<%= locals.data?.newtitle ?? "" %>"
+                />
             </p>
             <p>
                 <label for="newdescription">Weapon description:</label>
@@ -58,7 +59,7 @@
         <% }} %>
         <fieldset class="end-form-buttons">
             <a href="/weapons">Cancel</a>
-            <button type="submit"><%= editing ? "Save Weapon" : "Add Waepon" %></button>
+            <button type="submit"><%= editing ? "Save Weapon" : "Add Weapon" %></button>
         </fieldset>
     </form>
 </section>

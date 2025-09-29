@@ -109,6 +109,20 @@ async function categoryEditGet(req, res, next) {
 
 async function categoryPut(req, res, next) {
   try {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.render("pages/categories/new", {
+        title: "New Category",
+        stylesheets: ["base", "forms"],
+        scripts: [],
+        layout: "layout",
+        data: req.body,
+        errors: errors.array(),
+        editing: true,
+      });
+    }
+
     const newSlug = req.body.newtitle.toLowerCase().replace(/ /g, "-");
     await db.updateCategory(req.body, req.params.slug, newSlug);
     res.redirect(`/categories/${newSlug}`);
