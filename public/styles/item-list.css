@@ -124,3 +124,28 @@
     background-color: #fff;
   }
 }
+
+@media (max-width: 900px) {
+  .item-list li {
+    display: grid;
+    grid-template: auto auto / auto auto auto;
+
+    & .item-id {
+      width: fit-content;
+    }
+
+    & .item-buttons {
+      grid-area: 2 / 1 / 3 / 4;
+      justify-self: end;
+    }
+  }
+
+  .weapons-top-bar form {
+    display: grid;
+    grid-template: auto auto / 1fr auto auto auto;
+
+    & input {
+      grid-area: 1 / 1 / 2 / 5;
+    }
+  }
+}
